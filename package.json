@@ -1,0 +1,17 @@
+{
+  "name": "grapql",
+  "version": "1.0.0",
+  "description": "demo grapql ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "satej sarker",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-graphql": "^0.6.12",
+    "graphql": "^14.0.2",
+    "lodash": "^4.17.11"
+  }
+}
