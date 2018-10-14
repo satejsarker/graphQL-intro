@@ -41,7 +41,7 @@ class AddBook extends Component {
                         <select className="from-control" name="" id="">
                             {this.displayAuthor()}
 
-                        </select> s
+                        </select> 
                     </div>
                     <div className="form-control">
         <button className="btn btn-primary">
