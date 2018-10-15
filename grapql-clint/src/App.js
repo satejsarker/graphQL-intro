@@ -16,10 +16,19 @@ class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
-      <div className="App" id="main">
-       <h2>React with Graphql</h2>
+      <h3>
+        React with GraphQl
+      </h3>
+      <div className="row" id="main">
+    
+       <div className="col">
        <BookList/>
-  <AddBook/>
+       </div>
+       
+       <div className="col">
+       <AddBook/>
+       </div>
+  
       </div>
     
       </ApolloProvider>

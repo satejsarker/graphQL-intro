@@ -1,16 +1,22 @@
 import React, { Component } from 'react'
-import  {gql} from 'apollo-boost';
+
 import {graphql} from 'react-apollo';
 
-const getBook=gql`
-{
-  books{
-    name, id 
-  }
-}
-`
+import {getBook} from  '../queries/queries';
+
+import BookDetails from '../components/bookDetails';
 
 class BookList extends Component {
+  
+  
+  constructor(props){
+    super(props);
+    this.state={
+      selected:null
+    }
+  }
+
+
   displayBook=()=>{
 const data=this.props.data;
 if(data.loading){
@@ -24,7 +30,15 @@ return (
 else{
   return data.books.map(book=>{
    return (
-    <li key={book.id}>
+    <li 
+    onClick={(e)=>{
+      this.setState({
+        selected: book.id
+      })
+    }}
+    style={{
+      cursor:'pointer'
+    }}className="list-group-item" key={book.id}>
     {book.name}
   </li>
    )
@@ -34,13 +48,37 @@ else{
   render() {
    
     return (
-      <div>
-        <ul id="book_list">
-            <li>
+      <div className="row">
+      
+      <div className="card">
+      <div className="card-header">
+      Book List</div>
+    <div className="card-body"> 
+        <div className="list-group">
+        <ul id="book_list" >
+            
              {this.displayBook()}
-            </li>
+            
         </ul>
+        </div>
       </div>
+  
+      
+        
+      </div>
+
+
+      <div className="col">
+      <div className="card">
+      <div className="card-header">Book Details</div>
+      
+      <BookDetails bookId={this.state.selected}/>
+      </div>
+      
+      
+      </div>
+      </div>
+      
     )
   }
 }

@@ -40,9 +40,7 @@ const AuthorType = new GraphQLObjectType({
             type: new GraphQLList(BookType),
             resolve(parent, args) {
                 //one author can have multiple book 
-                return Book.findById({
-                    authorId: args.id
-                })
+                return Book.find({ authorId: parent.id });
             }
         }
     })
